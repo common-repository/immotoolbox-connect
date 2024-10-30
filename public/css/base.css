@@ -1,0 +1,19 @@
+.selectionmenu {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    background: #efefef;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+}
+.selectionmenu a {
+    font-size: 20px;
+    text-decoration: none;
+}
+.text-muted .emoji {
+    filter: grayscale(1);
+}
+
+.btn-switchselection {
+    margin-left: 5px;
+}

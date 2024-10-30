@@ -1,0 +1,159 @@
+{% block search %}
+    {% set col_class = atts.format|default == "horizontal"?"col-md-2 col-sm-6":"" %}
+    <form method="get" action="{{ searchresults_url }}" class="{{ atts.format|default == "horizontal"?"row" }}">
+        {% block search_form %}
+            {% block search_country %}
+                {% if not atts.hide_country|default %}
+                    <div class="form-group {{ col_class }}">
+                        {% block search_country_label %}
+                            <label for="country">{{ __("Country", "immotoolbox-connect") }}</label>
+                        {% endblock %}
+                        {% block search_country_select %}
+                            <select name="nsearch[country]" id="country" class="form-control selectpicker">
+                                <option value="">{{ __("All", "immotoolbox-connect") }}</option>
+                                {% block search_country_options %}
+                                    {% for country in countries %}
+                                        <option value="{{ country.code }}" {{ search.country==country.code?"selected" }}>{{ country.name }}</option>
+                                    {% endfor %}
+                                {% endblock %}
+                            </select>
+                        {% endblock %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+
+            {% block search_city %}
+                {% if not atts.hide_city|default %}
+                    <div class="form-group {{ col_class }}">
+                        {% block search_city_label %}
+                            <label for="city">{{ __("City", "immotoolbox-connect") }} {{ locale }}</label>
+                        {% endblock %}
+                        {% block search_city_select %}
+                            <select name="nsearch[city][]" multiple id="city" class="form-control selectpicker"
+                                    title="{{ __("City", "immotoolbox-connect") }}..." data-live-search="true">
+                                {% block search_city_options %}
+                                    {% for country in countries %}
+                                        <optgroup label="{{ country.name }}">
+                                            {% for city in cities %}
+                                                {% if city.country.code==country.code %}
+                                                    <option value="{{ city.id }}" {{ city.id in search.city?"selected" }}>{{ city.name }}</option>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </optgroup>
+                                    {% endfor %}
+                                {% endblock %}
+                            </select>
+                        {% endblock %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+            {% block search_district %}
+                {% if not atts.hide_district|default(true) %}
+                    <div class="form-group {{ col_class }}">
+                        {% block search_district_label %}
+                            <label for="district">{{ __("district", "immotoolbox-connect") }} {{ locale }}</label>
+                        {% endblock %}
+                        {% block search_district_select %}
+                            <select name="nsearch[district][]" multiple id="district" class="form-control selectpicker"
+                                    title="{{ __("district", "immotoolbox-connect") }}..." data-live-search="true">
+                                {% block search_district_options %}
+                                    {% for district in districts %}
+                                        <option value="{{ district.id }}" {{ district.id in search.district?"selected" }}>{{ district.name }}</option>
+                                    {% endfor %}
+                                {% endblock %}
+                            </select>
+                        {% endblock %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+            {% block search_type %}
+                {% if not atts.hide_type|default %}
+                    <div class="form-group {{ col_class }}">
+                        {% block search_type_label %}
+                            <label for="type">{{ __("Type", "immotoolbox-connect") }}</label>
+                        {% endblock %}
+                        {% block search_type_select %}
+                            <select name="nsearch[type]" id="type" class="form-control selectpicker">
+                                {% block search_type_options %}
+                                    <option value="sale" {{ search.type=="sale"?"selected" }}>{{ __("For sale", "immotoolbox-connect") }}</option>
+                                    <option value="rental" {{ search.type=="rental"?"selected" }}>{{ __("To rent", "immotoolbox-connect") }}</option>
+                                {% endblock %}
+                            </select>
+                        {% endblock %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+
+            {% block search_price_max %}
+                {% if not atts.hide_price_max|default %}
+                    <div class="form-group {{ col_class }}">
+                        {% block search_price_max_label %}
+                            <label for="price_max">{{ __("Max price", "immotoolbox-connect") }}</label>
+                        {% endblock %}
+                        {% block search_price_max_input %}
+                            <input type="text" id="price_max" name="nsearch[price_max]" class="form-control"
+                                   placeholder="{{ __("Max price", "immotoolbox-connect") }}" value="{{ search.price_max }}">
+                        {% endblock %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+            {% block search_price_on_request %}
+                {% if search.price_on_request is defined %}
+                    <input type="hidden" id="price_on_request" name="nsearch[price_on_request]" value="{{ search.price_on_request }}">
+                {% endif %}
+            {% endblock %}
+            {% block search_featured %}
+                {% if search.featured is defined %}
+                    <input type="hidden" id="featured" name="nsearch[featured]" value="{{ search.featured }}">
+                {% endif %}
+            {% endblock %}
+
+            {% block search_rooms %}
+                {% if not atts.hide_rooms|default %}
+                    <div class="form-group {{ col_class }}">
+                        {% block search_rooms_label %}
+                            <label for="rooms">{{ __("Rooms", "immotoolbox-connect") }}</label>
+                        {% endblock %}
+                        {% block search_rooms_select %}
+                            <select name="nsearch[rooms][]" multiple id="rooms"
+                                    title="{{ __("Rooms", "immotoolbox-connect") }}..."
+                                    class="form-control selectpicker">
+                                <option value="1" {{ "1" in search.rooms?"selected" }}>1</option>
+                                <option value="2" {{ "2" in search.rooms?"selected" }}>2</option>
+                                <option value="3" {{ "3" in search.rooms?"selected" }}>3</option>
+                                <option value="4" {{ "4" in search.rooms?"selected" }}>4</option>
+                                <option value="5" {{ "5" in search.rooms?"selected" }}>5</option>
+                                <option value="10" {{ "10" in search.rooms?"selected" }}>5+</option>
+                            </select>
+                        {% endblock %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+
+            {% block search_area_min %}
+                {% if not atts.hide_area_min|default %}
+                    <div class="form-group {{ col_class }}">
+                        {% block search_area_min_label %}
+                            <label for="area_min">{{ __("Min living area", "immotoolbox-connect") }}</label>
+                        {% endblock %}
+                        {% block search_area_min_input %}
+                            <input type="text" id="area_min" name="nsearch[area_min]" class="form-control"
+                                   placeholder="{{ __("Min living area", "immotoolbox-connect") }}"
+                                   value="{{ search.area_min }}">
+                        {% endblock %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+
+            {% block search_submit %}
+                {% if not atts.hide_submit|default %}
+                    <div class="form-group {{ col_class }}">
+                        {% block search_submit_button %}
+                            <button type="submit" class="btn btn-primary btn-block">{{ __("Search") }}</button>
+                        {% endblock %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+        {% endblock %}
+    </form>
+{% endblock %}

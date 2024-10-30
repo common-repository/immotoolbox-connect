@@ -1,0 +1,13 @@
+{% extends "listing.html.twig" %}
+
+{% block no_properties_found_text %}{{ __("There are no properties in your selection", "immotoolbox-connect") }}{% endblock %}
+
+{% block properties_title_text %}
+    {% if properties.count|default>1 %}
+        {{ properties.count }} {{ __("properties in your selection", "immotoolbox-connect") }}
+    {% elseif properties.count|default>0 %}
+        {{ properties.count }} {{ __("property in your selection", "immotoolbox-connect") }}
+    {% else %}
+        {{ __("No properties in your selection", "immotoolbox-connect") }}
+    {% endif %}
+{% endblock %}

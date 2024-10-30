@@ -1,0 +1,111 @@
+{% block properties %}
+    {% if properties|length %}
+        <div class="owl-carousel owl-carousel-{{ atts.carousel|default("responsive") }}">
+            {% block properties_list %}
+                {% for property in properties %}
+                    {% block property %}
+                        {% if property.images|length %}
+                            <div class="item">
+                                <a href="{{ property.url }}">
+                                    {% block property_img %}
+                                        <img src="{{ property.thumb }}" alt="" />
+                                    {% endblock %}
+
+                                    {% block property_legend %}
+                                        <div class="legend">
+                                            {% if property.country %}
+                                                {{ property.country.name }}<br />
+                                            {% endif %}
+                                            {{ property.type_property }} / {{ property.label_num_rooms }}<br />
+                                            {% if property.price %}
+                                                <strong>{{ property.price|number_format(0, '', ' ') }} {{ property.currency }}</strong>
+                                            {% else %}
+                                                <strong>{{ __("On request", "immotoolbox-connect") }}</strong>
+                                            {% endif %}
+                                        </div>
+                                    {% endblock %}
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endblock %}
+                {% endfor %}
+            {% endblock %}
+        </div>
+        <style>
+            .owl-carousel .legend {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 3px 5px;
+                background: rgba(255,255,255,0.8);
+                text-align: center;
+                line-height: 1;
+            }
+            .owl-dots {
+                display: none;
+            }
+            @media screen and (max-width: 640px) {
+                .owl-carousel-responsive .owl-item {
+                    opacity: 0.5;
+                }
+
+                .owl-carousel-responsive .owl-item.center {
+                    opacity: 1;
+                }
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $('.owl-carousel-responsive').owlCarousel({
+                    loop:true,
+                    margin:10,
+                    autoplay:true,
+                    autoplayTimeout: 5000,
+                    autoplayHoverPause: true,
+                    responsiveClass:true,
+                    responsive:{
+                        0:{
+                            items:2,
+                            center: true,
+                            loop: {{ properties|length>2?"true":"false" }}
+                        },
+                        640:{
+                            items:4,
+                            loop: {{ properties|length>4?"true":"false" }}
+                        },
+                        1000:{
+                            items:4,
+                            loop: {{ properties|length>4?"true":"false" }}
+                        },
+                        1200:{
+                            items:4,
+                            loop: {{ properties|length>4?"true":"false" }}
+                        }
+                    }
+                });
+                $('.owl-carousel-one').owlCarousel({
+                    loop:true,
+                    margin:10,
+                    autoplay:true,
+                    autoplayTimeout: 5000,
+                    autoplayHoverPause: true,
+                    responsive:{
+                        0:{
+                            items:2,
+                            loop: {{ properties|length>2?"true":"false" }}
+                        },
+                        480:{
+                            items:4,
+                            loop: {{ properties|length>4?"true":"false" }}
+                        },
+                        980:{
+                            items:2,
+                            loop: {{ properties|length>2?"true":"false" }}
+                        }
+                    }
+                });
+            });
+        </script>
+    {% endif %}
+{% endblock %}

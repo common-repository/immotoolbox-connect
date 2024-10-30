@@ -1,0 +1,15 @@
+.itbconnect_label {
+    margin: 0 0 0 5px;
+    border: 1px solid #999;
+    display: inline-block;
+    font-size: smaller;
+    padding: 0 3px;
+    border-radius: 3px;
+}
+.itbconnect_shortcode {
+    white-space: normal;
+}
+.itbconnect_subvalues {
+    font-size: smaller;
+    margin-left: 15px;
+}

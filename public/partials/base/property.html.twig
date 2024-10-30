@@ -1,0 +1,362 @@
+{% block property %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css" type="text/css" media="screen" />
+    {% if property %}
+        <h3>
+            {{ property.country_name|default(property.country_code) }}
+            / {{ property.type_property }}
+            {% if property.num_rooms>0 %} / {{ property.label_num_rooms }}{% endif %}
+
+            {% block property_switchselection %}
+                {% if selection_url|default %}
+                    {% block property_switchselection_button %}
+                        <a class="btn btn-default btn-sm btn-switchselection pull-right {{ selection[property.id]|default?"active text-success":"text-muted" }}"
+                           href="{{ selection_url }}?add_selection_property_id={{ property.id }}" title="{{ __("Switch selection") }}">⭐</a>
+                    {% endblock %}
+                {% endif %}
+            {% endblock %}
+
+            {% if property.price %}
+                <strong style="float: right;">{{ property.price|number_format(0, '', ' ') }} {{ property.currency }}</strong>
+            {% else %}
+                <strong style="float: right;"><em>{{ __("Price on request", "immotoolbox-connect") }}</em></strong>
+            {% endif %}
+        </h3>
+        <div class="clearfix"></div>
+
+        {% block property_intro %}
+            {% if property.text_intro %}
+                <blockquote>{{ property.text_intro }}</blockquote>
+            {% endif %}
+        {% endblock %}
+
+        {% block property_images %}
+            {% set images = property.images|filter(v => not v.isPlan) %}
+            {% if images|length %}
+                {% if mode == "simple" %}
+                    {% set image = images|first %}
+                    <a href="{{ image.large }}" target="_blank">
+                        <img src="{{ image.large }}" alt="" style="float: left;" />
+                    </a>
+                    {% if images|length>1 %}
+                        {% for image in images %}
+                            {% if loop.index0>0 %}
+                                <a href="{{ image.large }}" target="_blank">
+                                    <img src="{{ image.thumb }}" alt="" style="float: left;" />
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                    <div style="clear: both;"></div>
+                {% else %}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="owl-carousel owl-carousel-property">
+                                {% for image in images %}
+                                    <div class="">
+                                        <a href="{{ image.large }}" target="_blank" data-lightbox="property-images">
+                                            <img src="{{ image.medium }}" alt="" />
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        .owl-carousel-property {
+                            margin: 0 0 0 -5px;
+                        }
+                        @media screen and (max-width: 640px) {
+                            .owl-carousel-property .owl-item {
+                                opacity: 0.5;
+                            }
+
+                            .owl-carousel-property .owl-item.center {
+                                opacity: 1;
+                            }
+                        }
+                    </style>
+                    <script>
+                        $(document).ready(function() {
+                            $('.owl-carousel-property').owlCarousel({
+                                loop:true,
+                                margin:10,
+                                autoplay:true,
+                                autoplayTimeout: 5000,
+                                autoplayHoverPause: true,
+                                responsiveClass:true,
+                                responsive:{
+                                    0:{
+                                        items:2,
+                                        center: true
+                                    },
+                                    640:{
+                                        items:3,
+                                    },
+                                    1000:{
+                                        items:4,
+                                    }
+                                }
+                            })
+                        });
+                    </script>
+                    <style>
+                        .owl-dots {
+                            display: none;
+                        }
+                    </style>
+                {% endif %}
+            {% endif %}
+        {% endblock %}
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-sm-push-8">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4>{{ __("Information", "immotoolbox-connect") }}</h4>
+                        <p>
+                        {% if property.building %}
+                            {{ __("Building", "immotoolbox-connect") }} : {{ property.building }}<br />
+                        {% endif %}
+                        {% if property.district %}
+                            {{ __("District", "immotoolbox-connect") }} : {{ property.district.name }}<br />
+                        {% endif %}
+                        {% if property.city %}
+                            {{ __("City", "immotoolbox-connect") }} : {{ property.city.name }}<br />
+                        {% endif %}
+                        {% if property.country %}
+                            {{ __("Country", "immotoolbox-connect") }} : {{ property.country.name }}<br />
+                        {% endif %}
+
+                        {% if property.living_area>0 %}
+                            {{ __("Living area", "immotoolbox-connect") }}<!-- {{ __("Area", "immotoolbox-connect") }} -->  : {{ property.living_area|number_format(2, '.', ',') }}&nbsp;{{ __("sqm", "immotoolbox-connect") }}<br />
+                        {% endif %}
+                        {% if property.terrace_area>0 %}
+                            {{ __("Terrace area", "immotoolbox-connect") }} : {{ property.terrace_area|number_format(2, '.', ',') }}&nbsp;{{ __("sqm", "immotoolbox-connect") }}<br />
+                        {% endif %}
+                        {% if property.land_area>0 %}
+                            {{ __("Land area", "immotoolbox-connect") }} : {{ property.land_area|number_format(2, '.', ',') }}&nbsp;{{ __("sqm", "immotoolbox-connect") }}<br />
+                        {% endif %}
+                        {% if property.garden_area>0 %}
+                            {{ __("Garden area", "immotoolbox-connect") }} : {{ property.garden_area|number_format(2, '.', ',') }}&nbsp;{{ __("sqm", "immotoolbox-connect") }}<br />
+                        {% endif %}
+                        {% if property.total_area>0 %}
+                            {{ __("Total area", "immotoolbox-connect") }} : {{ property.total_area|number_format(2, '.', ',') }}&nbsp;{{ __("sqm", "immotoolbox-connect") }}<br />
+                        {% endif %}
+
+                        {% if property.num_rooms %}
+                            {{ __("Rooms", "immotoolbox-connect") }} : {{ property.label_num_rooms }}<br />
+                        {% endif %}
+
+                        {% if property.num_bedrooms %}
+                            {{ __("Bedrooms", "immotoolbox-connect") }} : {{ property.num_bedrooms }}<br />
+                        {% endif %}
+
+                        {% if property.num_bathrooms %}
+                            {{ __("Bathrooms", "immotoolbox-connect") }}<!-- {{ __("Baths", "immotoolbox-connect") }} --> : {{ property.num_bathrooms }}<br />
+                        {% endif %}
+
+                        {% if property.num_parkings %}
+                            {{ __("Parkings", "immotoolbox-connect") }} : {{ property.num_parkings }}<br />
+                        {% endif %}
+
+                        {% if property.num_boxs %}
+                            {{ __("Box", "immotoolbox-connect") }} : {{ property.num_boxs }}<br />
+                        {% endif %}
+
+                        {% if property.num_cellars %}
+                            {{ __("Cellars", "immotoolbox-connect") }} : {{ property.num_cellars }}<br />
+                        {% endif %}
+                        </p>
+
+                        <p>
+                            {% block property_pdf %}
+                                <a href="{% block property_pdf_url %}{{ property.pdfUrl }}{% endblock %}"
+                                   class="btn btn-default"
+                                   target="_blank">{{ __("Download PDF", "immotoolbox-connect") }}</a>
+                            {% endblock %}
+                            {% block property_plans %}
+                                {% if property.plans|default([])|length %}
+                                    {% for plan in property.plans %}
+                                        {% if loop.first %}
+                                            <a href="{{ plan.large }}" class="btn btn-default" target="_blank"
+                                               data-lightbox="property-plans"
+                                               title="{{ __("Plan", "immotoolbox-connect") }} {{ loop.index0+1 }}/{{ property.plans.length }}">
+                                                {{ __(property.plans|length>1?"Plans":"Plan", "immotoolbox-connect") }}
+                                            </a>
+                                        {% else %}
+                                            <a href="{{ plan.large }}" target="_blank"
+                                               data-lightbox="property-plans"
+                                               title="{{ __("Plan", "immotoolbox-connect") }} {{ loop.index0+1 }}/{{ property.plans.length }}"></a>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endblock %}
+                        </p>
+                    </div>
+                </div>
+                {% if option.google_maps_api_key and property.lat and property.lng %}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h4>{{ __("Situation", "immotoolbox-connect") }}</h4>
+                            {% if property.approx %}
+                                <div class="alert alert-warning">
+                                    <p>
+                                        {{ __("Approximative situation", "itbconnext") }}
+                                    </p>
+                                </div>
+                            {% endif %}
+                            <iframe width="100%" height="350" frameborder="0" style="border:0"
+                                    src="https://www.google.com/maps/embed/v1/place?q={{ property.lat }}%2C{{ property.lng }}&key={{ option.google_maps_api_key }}" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-xs-12 col-sm-8 col-sm-pull-4">
+                {% block property_description %}
+                    {{ property.text_description|raw }}
+                {% endblock %}
+
+                <p>
+                    <a id="btn-contact" class="btn btn-primary" href="{{ property.contactUrl }}?notitle=1" target="_blank" title="{{ __("Contact the agency", "immotoolbox-connect") }}" onclick="window.open(this.href, 'contact{{ property.id }}', 'height=800,width=600');return false;">
+                        {{ __("Contact the agency", "immotoolbox-connect") }}
+                    </a>
+                </p>
+            </div>
+
+            {% block property_dpe %}
+                {% if property.country.code=="FR" %}
+                    <div class="dpe">
+                        {% block property_dpe_title %}
+                            <h4>{{ __("Diagnosis of energy performance (DPE)", "immotoolbox-connect") }}</h4>
+                        {% endblock %}
+                        <div class="row">
+                            <div class="col-xs-6 energy">
+                                <figure>
+                                    {% block property_dpe_energy_title %}
+                                        <h5>{{ __("Energy", "immotoolbox-connect") }}</h5>
+                                    {% endblock %}
+                                    {% if property.dpe.energie.etiquette|default %}
+                                        {% block property_dpe_energy_img %}
+                                            <img src="https://api.immotoolbox.com/dpe/?t=energie&e={{ property.dpe.energie.etiquette|default(__("Pending", "immotoolbox-connect")) }}&v={{ property.dpe.energie.valeur|default("") }}&alpha=1ext=.png"
+                                                 class="img-responsive"/>
+                                        {% endblock %}
+                                    {% endif %}
+                                    <figcaption>
+                                        {% block property_dpe_energy_caption %}
+                                            {{ __("Label", "immotoolbox-connect") }} :
+                                            <strong>{{ property.dpe.energie.etiquette|default(__("Pending", "immotoolbox-connect")) }}</strong>
+                                            <br/>
+                                            {% if property.dpe.energie.valeur %}
+                                                {{ __("Value", "immotoolbox-connect") }} :
+                                                <strong>{{ property.dpe.energie.valeur|default(__("Pending", "immotoolbox-connect")) }}</strong>
+                                                <br/>
+                                            {% endif %}
+                                        {% endblock %}
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-xs-6 ges">
+                                <figure>
+                                    {% block property_dpe_ges_title %}
+                                        <h5>{{ __("Greenhouse gas rate (GES)", "immotoolbox-connect") }}</h5>
+                                    {% endblock %}
+                                    {% if property.dpe.taux_ges.etiquette|default %}
+                                        {% block property_dpe_ges_img %}
+                                            <img src="https://api.immotoolbox.com/dpe/?t=ges&e={{ property.dpe.taux_ges.etiquette|default(__("Pending", "immotoolbox-connect")) }}&v={{ property.dpe.taux_ges.valeur|default("") }}&alpha=1ext=.png"
+                                                 class="img-responsive"/>
+                                        {% endblock %}
+                                    {% endif %}
+                                    <figcaption>
+                                        {% block property_dpe_ges_caption %}
+                                            {{ __("Label", "immotoolbox-connect") }} :
+                                            <strong>{{ property.dpe.taux_ges.etiquette|default(__("Pending", "immotoolbox-connect")) }}</strong>
+                                            <br/>
+                                            {% if property.dpe.energie.valeur %}
+                                                {{ __("Value", "immotoolbox-connect") }} :
+                                                <strong>{{ property.dpe.taux_ges.valeur|default(__("Pending", "immotoolbox-connect")) }}</strong>
+                                                <br/>
+                                            {% endif %}
+                                        {% endblock %}
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endblock %}
+
+
+            {% block property_alur %}
+                {% if property.country.code=="FR" and property.alur %}
+                    {% if property.alur.isCopropriete|default() %}
+                        <p>
+                            <small>
+                                {{ __("La copropriété inclut %s lots pour un montant annuel de la quote-part du budget prévisionnel des dépenses courantes de %s €.", "itbconnect", [
+                                    produit.alur.lots|default('-'), produit.alur.charges|default('-')
+                                ]) }}<br />
+                                {% if prduit.alur.isProcedure|default() %}
+                                    {{ "<u>"~__("Procédure en cours", "immotoolbox-connect")~":</u> "~produit.alur.procedure|default(__("Procédure non définie", "immotoolbox-connect")) }}<br />
+                                {% else %}
+                                    {{ __("Aucune procédure en cours", "immotoolbox-connect") }}<br />
+                                {% endif %}
+                            </small>
+                        </p>
+                    {% endif %}
+
+                    {% if property.alur.pct_honoraires>0 or property.alur.chargehonoraires>0 %}
+                        <p>
+                            <small>
+                                {% if property.alur.chargehonoraires|default()=="acquéreur" %}
+                                    {{ __("Les honoraires sont à la charge de l'acquéreur", "immotoolbox-connect") }}. {{ __("Honoraires", "immotoolbox-connect") }}: {{ property.alur.pct_honoraires|default()?property.alur.pct_honoraires~"%":__("Non définis", "immotoolbox-connect") }}.<br/>
+                                {% else %}
+                                    {{ __("Les honoraires sont à la charge du vendeur", "immotoolbox-connect") }}.<br/>
+                                {% endif %}
+                            </small>
+                        </p>
+                    {% endif %}
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% else %}
+        {% block property_not_found %}
+            <div class="alert alert-danger">
+                <h4>{{ __("Property not found", "immotoolbox-connect") }}</h4>
+                <p>
+                    {{ __("The requested property cannot be found", "immotoolbox-connect") }}
+                </p>
+            </div>
+        {% endblock %}
+    {% endif %}
+
+    {% block selection %}
+        {% if selection_url is defined %}
+            {% block selection_menu %}
+                <div class="selectionmenu">
+                    <a href="{{ selection_url }}">
+                        ⭐ <span class="selectioncount">{{ selection|default([])|length }}</span>
+                    </a>
+                </div>
+            {% endblock %}
+            <script>
+                $(".btn-switchselection").click(function () {
+                    var $this = $(this); $.get(this.href, function (data) {
+                        var $data = $(data);
+                        $('.selectioncount').html($data.find('.itbselectionjson').attr('data-count'));
+                        $this.toggleClass('text-success text-muted active')});
+                    return false;
+                });
+                function setupMenus ()
+                {
+                    var $menus = $('[href=\'{{ selection_url }}\']');
+                    $menus.each(function () {
+                        if (!$(this).find('.selectioncount').length) {
+                            $(this).append(' <span class="selectioncount badge">{{ selection|default([])|length }}<span>');
+                        }
+                    });
+                }
+                setupMenus();
+            </script>
+        {% endif %}
+    {% endblock %}
+{% endblock %}

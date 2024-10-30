@@ -1,0 +1,12 @@
+{
+    "name": "zebrasoft/immotoolboxconnect",
+    "require": {
+        "twig/twig": "^1.37",
+        "twig/extensions": "^1.5"
+    },
+    "config": {
+        "platform": {
+            "php": "5.6"
+        }
+    }
+}

@@ -1,0 +1,149 @@
+{% block agencies %}
+    {% if agency|default %}
+        <div class="itb_agency">
+            <h2>{{ agency.name }}</h2>
+            <img src="{{ agency.thumb }}" alt="{{ agency.name }}"
+                 style="width: 150px; float: left; margin: 0 10px 10px 0;">
+            <address>
+                {{ agency.address }}
+            </address>
+        </div>
+        <div style="clear: both"></div>
+        {% set properties = agency.properties %}
+        {% if properties.count>0 %}
+            {% embed "listing.html.twig" %}
+            {% endembed %}
+        {% endif %}
+    {% elseif agencies|default %}
+        <div class="itb_agencies">
+            {% block agencies_title %}
+                <h2>
+                    {% block agencies_title_text %}
+                        {% if agencies.count>1 %}
+                            {{ agencies.count }} {{ __("agencies found", "immotoolbox-connect") }}
+                        {% elseif agencies.count>0 %}
+                            {{ agencies.count }} {{ __("agency found", "immotoolbox-connect") }}
+                        {% else %}
+                            {{ __("No agency found", "immotoolbox-connect") }}
+                        {% endif %}
+                    {% endblock %}
+                </h2>
+            {% endblock %}
+
+            {% block agencies_list %}
+                {% if agencies.list|length %}
+                    {% for agency in agencies.list %}
+                        {% block agency %}
+                            <div class="itb_agencies_agency">
+                                {% if atts.show_title|default(true) %}
+                                    {% block agency_title %}
+                                        <h3><a href="{{ agency.pageurl }}">
+                                                {{ agency.name }}
+                                            </a></h3>
+                                    {% endblock %}
+                                {% endif %}
+
+                                {% block agency_image %}
+                                    {% if agency.thumb %}
+                                        <a href="{{ agency.pageurl }}" class="itb_properties_agency_img">
+                                            {% block agency_image_img %}
+                                                    <img src="{{ agency.thumb }}" alt="{{ agency.name }}"
+                                                         style="width: 150px; float: left; margin: 0 10px 10px 0;">
+                                            {% endblock %}
+                                        </a>
+                                    {% endif %}
+                                {% endblock %}
+                                {% block agency_content %}
+                                    <div class="itb_properties_agency_content" style="padding-left: 160px;">
+                                        {% if atts.show_summary|default(true) %}
+                                            {% block agency_summary %}
+                                                <p>
+                                                    {{ agency.url }}
+                                                </p>
+                                            {% endblock %}
+                                        {% endif %}
+                                    </div>
+                                {% endblock %}
+                            </div>
+                            <hr style="clear: both;"/>
+                        {% endblock %}
+                    {% endfor %}
+                {% endif %}
+            {% endblock %}
+
+            {% block pagination %}
+                <nav class="pagination">
+                    <ul class="pagination">
+                        {% if agencies.url_previous %}
+                            {% block pagination_previous %}
+                                <li>
+                                    <a href="{{ agencies.url_previous }}" class="previous">
+                                        &laquo; {{ __("Previous", "immotoolbox-connect") }}
+                                    </a>
+                                </li>
+                            {% endblock %}
+                        {% else %}
+                            {% block pagination_no_previous %}
+                                <li class="disabled">
+                                    <span>
+                                        &laquo; {{ __("Previous", "immotoolbox-connect") }}
+                                    </span>
+                                </li>
+                            {% endblock %}
+                        {% endif %}
+
+                        {% if agencies.url_next %}
+                            {% block pagination_next %}
+                                <li>
+                                    <a href="{{ agencies.url_next }}" class="next">
+                                        {{ __("Next", "immotoolbox-connect") }} &raquo;
+                                    </a>
+                                </li>
+                            {% endblock %}
+                        {% else %}
+                            {% block pagination_no_next %}
+                                <li class="disabled">
+                                    <span>
+                                        {{ __("Next", "immotoolbox-connect") }} &raquo;
+                                    </span>
+                                </li>
+                            {% endblock %}
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endblock %}
+        </div>
+    {% else %}
+    {% endif %}
+
+    {% block selection %}
+        {% if selection_url is defined %}
+            {% block selection_menu %}
+                <div class="selectionmenu">
+                    <a href="{{ selection_url }}">
+                        ⭐ <span class="selectioncount">{{ selection|default([])|length }}</span>
+                    </a>
+                </div>
+            {% endblock %}
+            <script>
+                $(".btn-switchselection").click(function () {
+                    var $this = $(this); $.get(this.href, function (data) {
+                        var $data = $(data);
+                        $('.selectioncount').html($data.find('.itbselectionjson').attr('data-count'));
+                        $this.toggleClass('text-success text-muted active')});
+                    return false;
+                });
+                function setupMenus ()
+                {
+                    var $menus = $('[href=\'{{ selection_url }}\']');
+                    $menus.each(function () {
+                        if (!$(this).find('.selectioncount').length) {
+                            $(this).append(' <span class="selectioncount badge">{{ selection|default([])|length }}<span>');
+                        }
+                    });
+                }
+                setupMenus();
+            </script>
+        {% endif %}
+    {% endblock %}
+{% endblock %}

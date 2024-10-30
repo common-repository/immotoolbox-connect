@@ -1,0 +1,233 @@
+{% set get = properties.get %}
+{% set atts = properties.atts %}
+{% block properties %}
+    <div class="itb_properties">
+        {% block properties_heading %}
+            {% block properties_title %}
+                <h2>
+                    {% block properties_title_text %}
+                        {% if properties.count>1 %}
+                            {{ properties.count }} {{ __("properties found", "immotoolbox-connect") }}
+                        {% elseif properties.count>0 %}
+                            {{ properties.count }} {{ __("property found", "immotoolbox-connect") }}
+                        {% else %}
+                            {% block properties_title_no_property_found_text %}
+                            {{ __("No property found", "immotoolbox-connect") }}
+                            {% endblock %}
+                        {% endif %}
+                    {% endblock %}
+                </h2>
+            {% endblock %}
+
+            {% block properties_sort %}
+                {% if properties.count>0 %}
+                    {% block properties_sort_date %}
+                        <span class="btn-group btn-group-sm">
+                            {% block properties_sort_date_desc %}
+                                <a href="{% block properties_sort_date_desc_url %}{{ properties.url_current }}norder=date&ndirection=desc{% endblock %}"
+                                   class="btn btn-default {{ get.order|default("date")=="date"?"active" }}">{{ __("Date", "immotoolbox-connect") }}
+                                    <i class="fa fa-sort-desc" aria-hidden="true"><span class="hidden">🔽</span></i></a>
+                            {% endblock %}
+                        </span>
+                    {% endblock %}
+                    {% block properties_sort_price %}
+                        <span class="btn-group btn-group-sm">
+                            {% block properties_sort_price_desc %}
+                                <a href="{% block properties_sort_price_desc_url %}{{ properties.url_current }}norder=price&ndirection=desc{% endblock %}"
+                                   class="btn btn-default {{ get.order=="price" and get.direction=="desc"?"active" }}">{{ __("Price", "immotoolbox-connect") }}
+                                    <i class="fa fa-sort-desc" aria-hidden="true"><span class="hidden">🔽</span></i></a>
+                            {% endblock %}
+                            {% block properties_sort_price_asc %}
+                                <a href="{% block properties_sort_price_asc_url %}{{ properties.url_current }}norder=price&ndirection=asc{% endblock %}"
+                                   class="btn btn-default {{ get.order=="price" and get.direction=="asc"?"active" }}">{{ __("Price", "immotoolbox-connect") }}
+                                    <i class="fa fa-sort-asc" aria-hidden="true"><span class="hidden">🔼</span></i></a>
+                            {% endblock %}
+                        </span>
+                    {% endblock %}
+                    {% block properties_sort_area %}
+                        <span class="btn-group btn-group-sm">
+                            {% block properties_sort_area_desc %}
+                                <a href="{% block properties_sort_area_desc_url %}{{ properties.url_current }}norder=living_area&ndirection=desc{% endblock %}"
+                                   class="btn btn-default {{ get.order=="living_area" and get.direction=="desc"?"active" }}">{{ __("Area", "immotoolbox-connect") }}
+                                    <i class="fa fa-sort-desc" aria-hidden="true"><span class="hidden">🔽</span></i></a>
+                            {% endblock %}
+                            {% block properties_sort_area_asc %}
+                                <a href="{% block properties_sort_area_asc_url %}{{ properties.url_current }}norder=living_area&ndirection=asc{% endblock %}"
+                                   class="btn btn-default {{ get.order=="living_area" and get.direction=="asc"?"active" }}">{{ __("Area", "immotoolbox-connect") }}
+                                    <i class="fa fa-sort-asc" aria-hidden="true"><span class="hidden">🔼</span></i></a>
+                            {% endblock %}
+                        </span>
+                    {% endblock %}
+                {% endif %}
+            {% endblock %}
+        {% endblock %}
+
+        {% block properties_list %}
+            {% if properties.list|length %}
+                {% for property in properties.list %}
+                    {% block property %}
+                        <div class="itb_properties_property">
+                            {% if atts.show_title|default(true) %}
+                                {% block property_title %}
+                                    <h3>
+                                        <a href="{{ property.url }}">
+                                            {{ property.text_title }}
+                                        </a>
+                                        {% block property_switchselection %}
+                                            {% if selection_url|default %}
+                                                {% block property_switchselection_button %}
+                                                    <a class="btn btn-default btn-sm btn-switchselection pull-right {{ selection[property.id]|default?"active text-success":"text-muted" }}"
+                                                       href="{{ selection_url }}?add_selection_property_id={{ property.id }}" title="{{ __("Switch selection") }}">⭐</a>
+                                                {% endblock %}
+                                            {% endif %}
+                                        {% endblock %}
+                                    </h3>
+                                {% endblock %}
+                            {% endif %}
+
+                            {% block property_image %}
+                                {% if property.images|length %}
+                                    <a href="{{ property.url }}" class="itb_properties_property_img">
+                                        {% block property_image_img %}
+                                            {% if property.images|length %}
+                                                <img src="{{ property.small }}"
+                                                     style="width: 150px; float: left; margin: 0 10px 10px 0;">
+                                            {% endif %}
+                                        {% endblock %}
+                                    </a>
+                                {% endif %}
+                            {% endblock %}
+
+                            {% block property_content %}
+                                <div class="itb_properties_property_content" style="padding-left: 160px;">
+                                    {% if atts.show_summary|default(true) %}
+                                        {% block property_summary %}
+                                            <p>
+                                                {% block property_summary_text %}
+                                                    {{ property.type_property }}
+                                                    {% if property.num_rooms>0 %} / {{ property.label_num_rooms }}{% endif %}
+                                                    / {% if property.price %}
+                                                    <strong>{{ property.price|number_format(0, '', ' ') }} {{ property.currency }}</strong>
+                                                {% else %}
+                                                    <strong><em>{{ __("Price on request", "immotoolbox-connect") }}</em></strong>
+                                                {% endif %}
+                                                {% endblock %}
+                                            </p>
+                                        {% endblock %}
+                                    {% endif %}
+
+                                    {% if atts.show_intro %}
+                                        {% block property_intro %}
+                                            {% if property.text_intro %}
+                                                <p class="itb_properties_property_intro">{{ property.text_intro }}</p>
+                                            {% endif %}
+                                        {% endblock %}
+                                    {% endif %}
+
+                                    {% block property_readmore %}
+                                        <p class="itb_properties_property_readmore">
+                                            {% block property_readmore_button %}
+                                                <a class="btn btn-default"
+                                                   href="{{ property.url }}">{{ __("Read more...") }}</a>
+                                            {% endblock %}
+                                        </p>
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+                        </div>
+                        <hr style="clear: both;"/>
+                    {% endblock %}
+                {% endfor %}
+                {% block pagination %}
+                    <nav class="pagination">
+                        <ul class="pagination">
+                            {% if properties.url_previous %}
+                                {% block pagination_previous %}
+                                    <li>
+                                        <a href="{{ properties.url_previous }}" class="previous">
+                                            &laquo; {{ __("Previous", "immotoolbox-connect") }}
+                                        </a>
+                                    </li>
+                                {% endblock %}
+                            {% else %}
+                                {% block pagination_no_previous %}
+                                    <li class="disabled">
+                                    <span>
+                                        &laquo; {{ __("Previous", "immotoolbox-connect") }}
+                                    </span>
+                                    </li>
+                                {% endblock %}
+                            {% endif %}
+
+                            {% if properties.url_next %}
+                                {% block pagination_next %}
+                                    <li>
+                                        <a href="{{ properties.url_next }}" class="next">
+                                            {{ __("Next", "immotoolbox-connect") }} &raquo;
+                                        </a>
+                                    </li>
+                                {% endblock %}
+                            {% else %}
+                                {% block pagination_no_next %}
+                                    <li class="disabled">
+                                    <span>
+                                        {{ __("Next", "immotoolbox-connect") }} &raquo;
+                                    </span>
+                                    </li>
+                                {% endblock %}
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endblock %}
+            {% else %}
+                {% block no_properties_found %}
+                    <p>{% block no_properties_found_text %}{{ __("No properties found", "immotoolbox-connect") }}{% endblock %}</p>
+                {% endblock %}
+            {% endif %}
+        {% endblock %}
+        {% block property_css %}
+            <style>
+                nav.pagination {
+                    display: block;
+                    text-align: center;
+                }
+
+                nav.pagination li {
+                    display: inline-block;
+                    list-style-type: none;
+                }
+            </style>
+        {% endblock %}
+    </div>
+
+    {% block selection %}
+        {% if selection_url is defined %}
+            {% block selection_menu %}
+                <div class="selectionmenu">
+                    <a href="{{ selection_url }}">
+                        ⭐ <span class="selectioncount">{{ selection|default([])|length }}</span>
+                    </a>
+                </div>
+            {% endblock %}
+            <script>
+                $(".btn-switchselection").click(function () {
+                    var $this = $(this); $.get(this.href, function (data) {
+                    var $data = $(data);
+                    $('.selectioncount').html($data.find('.itbselectionjson').attr('data-count'));
+                    $this.toggleClass('text-success text-muted active')});
+                    return false;
+                });
+                function setupMenus ()
+                {
+                    var $menus = $('[href=\'{{ selection_url }}\']');
+                    $menus.each(function () {
+                        if (!$(this).find('.selectioncount').length) {
+                            $(this).append(' <span class="selectioncount badge">{{ selection|default([])|length }}<span>');
+                        }
+                    });
+                }
+                setupMenus();
+            </script>
+        {% endif %}
+    {% endblock %}
+{% endblock %}

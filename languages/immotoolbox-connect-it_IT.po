@@ -1,0 +1,873 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"Project-Id-Version: ImmoToolBox Connect\n"
+"PO-Revision-Date: 2019-02-25 17:28+0100\n"
+"Last-Translator: lokalise.co\n"
+"Language-Team: lokalise.co\n"
+"Language: it_IT\n"
+"POT-Creation-Date: \n"
+
+#: admin/js/block.js:15 admin/js/block.js:222
+msgid "ImmoToolBox Property Listing"
+msgstr ""
+
+#: admin/js/block.js:16
+msgid "This block displays a list of properties"
+msgstr ""
+
+#: admin/js/block.js:72 admin/js/block.js:382
+msgid "Filter properties"
+msgstr ""
+
+#: admin/js/block.js:80 admin/js/block.js:390 admin/js/block.js:770
+#: admin/js/block.js:884 admin/js/block.js:898
+#: public/partials/base/search.html.twig:54
+msgid "Type"
+msgstr ""
+
+#: admin/js/block.js:84 admin/js/block.js:394 admin/js/block.js:774
+msgid "Properties for sale"
+msgstr ""
+
+#: admin/js/block.js:85 admin/js/block.js:395 admin/js/block.js:775
+msgid "Properties for rent"
+msgstr ""
+
+#: admin/js/block.js:93 admin/js/block.js:403 admin/js/block.js:783
+msgid "Country Code"
+msgstr ""
+
+#: admin/js/block.js:101 admin/js/block.js:411 admin/js/block.js:791
+msgid "City ID"
+msgstr ""
+
+#: admin/js/block.js:109 admin/js/block.js:419 admin/js/block.js:799
+msgid "District ID"
+msgstr ""
+
+#: admin/js/block.js:117 admin/js/block.js:427
+msgid "Building ID"
+msgstr ""
+
+#: admin/js/block.js:125 admin/js/block.js:435 admin/js/block.js:736
+#: admin/js/block.js:807 admin/js/block.js:888
+msgid "Nb. rooms"
+msgstr ""
+
+#: admin/js/block.js:133 admin/js/block.js:240 admin/js/block.js:443
+#: admin/js/block.js:552 admin/js/block.js:728 admin/js/block.js:815
+#: admin/js/block.js:887 admin/js/block.js:904
+msgid "Max. price"
+msgstr ""
+
+#: admin/js/block.js:141 admin/js/block.js:241 admin/js/block.js:451
+#: admin/js/block.js:553 admin/js/block.js:744 admin/js/block.js:823
+#: admin/js/block.js:889 admin/js/block.js:905
+msgid "Min. area"
+msgstr ""
+
+#: admin/js/block.js:149 admin/js/block.js:242 admin/js/block.js:459
+#: admin/js/block.js:554 admin/js/block.js:831
+msgid "Featured properties"
+msgstr ""
+
+#: admin/js/block.js:157 admin/js/block.js:467 admin/js/block.js:839
+msgid "Agency ID"
+msgstr ""
+
+#: admin/js/block.js:166 admin/js/block.js:476
+msgid "Ordering"
+msgstr ""
+
+#: admin/js/block.js:174 admin/js/block.js:251 admin/js/block.js:484
+#: admin/js/block.js:563
+msgid "Order"
+msgstr ""
+
+#: admin/js/block.js:178 admin/js/block.js:488
+#: public/partials/base/listing.html.twig:28
+msgid "Date"
+msgstr ""
+
+#: admin/js/block.js:179 admin/js/block.js:489
+#: public/partials/base/listing.html.twig:36
+#: public/partials/base/listing.html.twig:41
+msgid "Price"
+msgstr ""
+
+#: admin/js/block.js:180 admin/js/block.js:490
+#: public/partials/base/listing.html.twig:50
+#: public/partials/base/listing.html.twig:55
+#: public/partials/base/property.html.twig:131
+msgid "Area"
+msgstr ""
+
+#: admin/js/block.js:188 admin/js/block.js:252 admin/js/block.js:498
+#: admin/js/block.js:564
+msgid "Direction"
+msgstr ""
+
+#: admin/js/block.js:192 admin/js/block.js:502
+msgid "Asc"
+msgstr ""
+
+#: admin/js/block.js:193 admin/js/block.js:503
+msgid "Desc"
+msgstr ""
+
+#: admin/js/block.js:202 admin/js/block.js:512 admin/js/block.js:849
+msgid "Other settings"
+msgstr ""
+
+#: admin/js/block.js:233 admin/js/block.js:545
+msgid "Search values :"
+msgstr ""
+
+#: admin/js/block.js:234 admin/js/block.js:546
+msgid "Transaction"
+msgstr ""
+
+#: admin/js/block.js:235 admin/js/block.js:547 admin/js/block.js:712
+#: admin/js/block.js:885 admin/js/block.js:899
+#: public/partials/base/property.html.twig:127
+#: public/partials/base/search.html.twig:8
+msgid "Country"
+msgstr ""
+
+#: admin/js/block.js:236 admin/js/block.js:548 admin/js/block.js:720
+#: admin/js/block.js:886 admin/js/block.js:900
+#: public/partials/base/property.html.twig:124
+#: public/partials/base/search.html.twig:28
+msgid "City"
+msgstr ""
+
+#: admin/js/block.js:237 admin/js/block.js:549 admin/js/block.js:901
+#: public/partials/base/property.html.twig:121
+msgid "District"
+msgstr ""
+
+#: admin/js/block.js:238 admin/js/block.js:550 admin/js/block.js:902
+#: public/partials/base/property.html.twig:118
+msgid "Building"
+msgstr ""
+
+#: admin/js/block.js:239 admin/js/block.js:551
+msgid "Num. rooms"
+msgstr ""
+
+#: admin/js/block.js:243 admin/js/block.js:555 admin/js/block.js:907
+msgid "Agency"
+msgstr ""
+
+#: admin/js/block.js:250 admin/js/block.js:562
+msgid "Ordering :"
+msgstr ""
+
+#: admin/js/block.js:260 admin/js/block.js:572 admin/js/block.js:915
+msgid "Other settings :"
+msgstr ""
+
+#: admin/js/block.js:325 admin/js/block.js:534
+msgid "ImmoToolBox Property Carousel"
+msgstr ""
+
+#: admin/js/block.js:326
+msgid "This block displays a carousel of properties"
+msgstr ""
+
+#: admin/js/block.js:636 admin/js/block.js:872
+msgid "ImmoToolBox Property Search"
+msgstr ""
+
+#: admin/js/block.js:637
+msgid "This block displays a search engine"
+msgstr ""
+
+#: admin/js/block.js:691
+msgid "Format"
+msgstr ""
+
+#: admin/js/block.js:695
+msgid "Vertical"
+msgstr ""
+
+#: admin/js/block.js:696
+msgid "Horizontal"
+msgstr ""
+
+#: admin/js/block.js:704
+msgid "Hidden fields"
+msgstr ""
+
+#: admin/js/block.js:752 admin/js/block.js:890
+msgid "Submit"
+msgstr ""
+
+#: admin/js/block.js:761
+msgid "Pre-filled values"
+msgstr ""
+
+#: admin/js/block.js:883
+msgid "Hidden fields :"
+msgstr ""
+
+#: admin/js/block.js:897
+msgid "Default values :"
+msgstr ""
+
+#: admin/js/block.js:903 public/partials/base/property.html.twig:147
+#: public/partials/base/search.html.twig:86
+msgid "Rooms"
+msgstr ""
+
+#: admin/js/block.js:906
+msgid "Featured"
+msgstr ""
+
+#: admin/ITBConnectAdmin.php:36 admin/ITBConnectAdmin.php:37
+msgid "ITB Connect"
+msgstr ""
+
+#: admin/ITBConnectAdmin.php:44 admin/ITBConnectAdmin.php:45
+#: admin/partials/clearcache.php:9 admin/partials/clearcache.php:15
+msgid "Clear cache"
+msgstr ""
+
+#: admin/partials/clearcache.php:13
+msgid "file(s) in cache"
+msgstr ""
+
+#: admin/partials/settings.php:10
+msgid "ITB Connect API Settings"
+msgstr ""
+
+#: admin/partials/settings.php:14
+msgid "You can get your API settings from your <b>Integrations</b> page on ImmoToolBox."
+msgstr ""
+
+#: admin/partials/settings.php:17
+msgid "Documentation can be found on the <a href=\"%s\" target=\"_blank\">plugin page</a>."
+msgstr ""
+
+#: admin/partials/settings.php:24
+msgid "Private key"
+msgstr ""
+
+#: admin/partials/settings.php:38
+msgid "Google Maps key"
+msgstr ""
+
+#: admin/partials/settings.php:50
+msgid "Include Bootstrap"
+msgstr ""
+
+#: admin/partials/settings.php:57 admin/partials/settings.php:58
+msgid "Javascript"
+msgstr ""
+
+#: admin/partials/settings.php:57 admin/partials/settings.php:64
+msgid "No"
+msgstr ""
+
+#: admin/partials/settings.php:58 admin/partials/settings.php:65
+msgid "Yes"
+msgstr ""
+
+#: admin/partials/settings.php:64 admin/partials/settings.php:65
+msgid "CSS"
+msgstr ""
+
+#: admin/partials/settings.php:78 admin/partials/settings.php:108
+#: admin/partials/settings.php:138
+msgid "Detected pages"
+msgstr ""
+
+#: admin/partials/settings.php:85 admin/partials/settings.php:115
+#: admin/partials/settings.php:145
+msgid "Other pages"
+msgstr ""
+
+#: admin/partials/settings.php:95
+msgid "The WordPress page used to display a property"
+msgstr ""
+
+#: admin/partials/settings.php:125
+msgid "The WordPress page used to display search results"
+msgstr ""
+
+#: admin/partials/settings.php:155
+msgid "The WordPress page used to display client selection"
+msgstr ""
+
+#: admin/partials/settings.php:163
+msgid "An error happened while trying to connect to ImmoToolBox. Please double check the API Private key."
+msgstr ""
+
+#: admin/partials/settings.php:171
+msgid "The connection to ImmoToolBox is established!"
+msgstr ""
+
+#: admin/partials/settings.php:172
+msgid "Properties available :"
+msgstr ""
+
+#: admin/partials/settings.php:181
+msgid "Please fill up your API keys to see the widget options."
+msgstr ""
+
+#: admin/partials/settings.php:188
+msgid "Save"
+msgstr ""
+
+#: public/partials/base/agencies.html.twig:23
+msgid "agencies found"
+msgstr ""
+
+#: public/partials/base/agencies.html.twig:25
+msgid "agency found"
+msgstr ""
+
+#: public/partials/base/agencies.html.twig:27
+msgid "No agency found"
+msgstr ""
+
+#: public/partials/base/agencies.html.twig:81
+#: public/partials/base/agencies.html.twig:89
+#: public/partials/base/listing.html.twig:147
+#: public/partials/base/listing.html.twig:155
+msgid "Previous"
+msgstr ""
+
+#: public/partials/base/agencies.html.twig:99
+#: public/partials/base/agencies.html.twig:107
+#: public/partials/base/listing.html.twig:165
+#: public/partials/base/listing.html.twig:173
+msgid "Next"
+msgstr ""
+
+#: public/partials/base/carousel.html.twig:23
+msgid "On request"
+msgstr ""
+
+#: public/partials/base/contact.html.twig:5
+#: public/partials/base/property.html.twig:195
+msgid "Contact the agency"
+msgstr "Contatta l'agenzia"
+
+#: public/partials/base/listing.html.twig:10
+msgid "properties found"
+msgstr "proprietà trovate"
+
+#: public/partials/base/listing.html.twig:12
+msgid "property found"
+msgstr "proprietà trovata"
+
+#: public/partials/base/listing.html.twig:15
+msgid "No property found"
+msgstr "Nessuna proprietà trovata"
+
+#: public/partials/base/listing.html.twig:111
+#: public/partials/base/property.html.twig:21
+msgid "Price on request"
+msgstr "Prezzo su richiesta"
+
+#: public/partials/base/listing.html.twig:130
+msgid "Read more..."
+msgstr "Leggi di più..."
+
+#: public/partials/base/listing.html.twig:183
+msgid "No properties found"
+msgstr "Nessuna proprietà trovata"
+
+#: public/partials/base/property.html.twig:116
+msgid "Information"
+msgstr "Informazioni"
+
+#: public/partials/base/property.html.twig:131
+msgid "Living area"
+msgstr "Zona soggiorno"
+
+#: public/partials/base/property.html.twig:131
+#: public/partials/base/property.html.twig:134
+#: public/partials/base/property.html.twig:137
+#: public/partials/base/property.html.twig:140
+#: public/partials/base/property.html.twig:143
+msgid "sqm"
+msgstr "mq"
+
+#: public/partials/base/property.html.twig:134
+msgid "Terrace area"
+msgstr "Area terrazza"
+
+#: public/partials/base/property.html.twig:137
+msgid "Land area"
+msgstr "Area del terreno"
+
+#: public/partials/base/property.html.twig:140
+msgid "Garden area"
+msgstr "Area giardino"
+
+#: public/partials/base/property.html.twig:143
+msgid "Total area"
+msgstr "Area totale"
+
+#: public/partials/base/property.html.twig:151
+msgid "Bedrooms"
+msgstr "Camere"
+
+#: public/partials/base/property.html.twig:155
+msgid "Bathrooms"
+msgstr "bagni"
+
+#: public/partials/base/property.html.twig:155
+msgid "Baths"
+msgstr "Bagni"
+
+#: public/partials/base/property.html.twig:159
+msgid "Parkings"
+msgstr "parcheggi"
+
+#: public/partials/base/property.html.twig:163
+msgid "Box"
+msgstr ""
+
+#: public/partials/base/property.html.twig:167
+msgid "Cellars"
+msgstr "cantine"
+
+#: public/partials/base/property.html.twig:174
+msgid "Situation"
+msgstr "Posizione"
+
+#: public/partials/base/property.html.twig:178
+msgid "Approximative situation"
+msgstr "Posizione approssimativa"
+
+#: public/partials/base/property.html.twig:202
+msgid "Diagnosis of energy performance (DPE)"
+msgstr "Diagnosi delle prestazioni energetiche (DPE)"
+
+#: public/partials/base/property.html.twig:205
+msgid "Energy"
+msgstr "Energia"
+
+#: public/partials/base/property.html.twig:207
+#: public/partials/base/property.html.twig:218
+msgid "Label"
+msgstr "Etichetta"
+
+#: public/partials/base/property.html.twig:207
+#: public/partials/base/property.html.twig:211
+#: public/partials/base/property.html.twig:218
+#: public/partials/base/property.html.twig:222
+msgid "Pending"
+msgstr "in attesa di"
+
+#: public/partials/base/property.html.twig:211
+#: public/partials/base/property.html.twig:222
+msgid "Value"
+msgstr ""
+
+#: public/partials/base/property.html.twig:216
+msgid "Greenhouse gas rate (GES)"
+msgstr ""
+
+#: public/partials/base/property.html.twig:236
+msgid "La copropriété inclut %s lots pour un montant annuel de la quote-part du budget prévisionnel des dépenses courantes de %s €."
+msgstr ""
+
+#: public/partials/base/property.html.twig:240
+msgid "Procédure en cours"
+msgstr ""
+
+#: public/partials/base/property.html.twig:240
+msgid "Procédure non définie"
+msgstr ""
+
+#: public/partials/base/property.html.twig:242
+msgid "Aucune procédure en cours"
+msgstr ""
+
+#: public/partials/base/property.html.twig:252
+msgid "Les honoraires sont à la charge de l'acquéreur"
+msgstr ""
+
+#: public/partials/base/property.html.twig:252
+msgid "Honoraires"
+msgstr ""
+
+#: public/partials/base/property.html.twig:252
+msgid "Non définis"
+msgstr ""
+
+#: public/partials/base/property.html.twig:254
+msgid "Les honoraires sont à la charge du vendeur"
+msgstr ""
+
+#: public/partials/base/property.html.twig:265
+msgid "Property not found"
+msgstr ""
+
+#: public/partials/base/property.html.twig:267
+msgid "The requested property cannot be found"
+msgstr ""
+
+#: public/partials/base/search.html.twig:12
+msgid "All"
+msgstr ""
+
+#: public/partials/base/search.html.twig:59
+msgid "For sale"
+msgstr ""
+
+#: public/partials/base/search.html.twig:60
+msgid "To rent"
+msgstr "Affittare"
+
+#: public/partials/base/search.html.twig:72
+msgid "Max price"
+msgstr "Prezzo massimo"
+
+#: public/partials/base/search.html.twig:108
+msgid "Min living area"
+msgstr "Area min soggiorno"
+
+#: public/partials/base/search.html.twig:123
+msgid "Search"
+msgstr "Ricerca"
+
+#: public/partials/base/selection.html.twig:3
+msgid "No properties"
+msgstr "Nessuna proprietà"
+
+#: public/partials/base/selection.html.twig:4
+msgid "There is no properties in your selection"
+msgstr ""
+
+msgid "No properties in your selection"
+msgstr "Nessuna proprietà nella sua selezione"
+
+msgid "There are no properties in your selection"
+msgstr "Non ci sono proprietà nella sua selezione"
+
+#: admin/ITBConnectAdmin.php:65
+msgid "This plugin requires a version of PHP greater than 7.0 (you have PHP %s version)"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: includes/strings.php:57
+msgid "https://www.immotoolbox.com/"
+msgstr "https://www.immotoolbox.com/"
+
+#. Author URI of the plugin
+msgid "https://www.zebrasoft.mc"
+msgstr "https://www.zebrasoft.mc"
+
+#. Author of the plugin
+msgid "ZebraSoft Monaco"
+msgstr "ZebraSoft Monaco"
+
+#. Description of the plugin
+msgid "Displays ImmoToolBox real estate listings in your website"
+msgstr ""
+
+#. Plugin Name of the plugin
+msgid "ImmoToolBox Connect"
+msgstr "ImmoToolBox Connect"
+
+#. Found in changelog list item.
+msgid "PHP version check"
+msgstr "Controllo versione PHP"
+
+#. Found in changelog list item.
+msgid "WordPress 5.0 test"
+msgstr "WordPress 5.0 test"
+
+#. Found in changelog list item.
+msgid "New Gutenberg blocks : \"Property Listing\", \"Property Search\", \"Property Carousel\""
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Multi-lingual website</strong>\n"
+"If your website is multi-lingual, for each language (except WordPress main language) you have to add the parameter \"searchresults_page_id\"\n"
+"Where the value of this parameter is the ID of a \"Search results page\" in the right language.\n"
+"ex: <code>[itb_search format=\"horizontal\" searchresults_page_id=\"123\"]</code>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Multi-lingual website</strong>\n"
+"See \"Properties listing pages\" information above"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "ex: <code>[itb_listing type=\"rental\" country=\"US\" property_page_id=\"123\" selection_page_id=\"456\"]</code>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Multi-lingual website</strong>\n"
+"If your website is multi-lingual, for each language (except WordPress main language) you have to add the parameters :\n"
+" - property_page_id : the ID of the \"Property details page\" in the right language (you have to create this page)\n"
+" - selection_page_id : the ID of the \"Visitor selection page\" in the right language (you have to create this page)"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"This page is used to display the properties added to his selection by the visitor.\n"
+"This page uses the <code>[itb_selection]</code> shortcode (this shortcode uses the same parameters as the <code>[itb_listing]</code> shortcode)"
+msgstr ""
+
+#. Found in description header.
+msgid "Visitor selection page"
+msgstr "Pagina delle selezioni del utente"
+
+#. Found in description header.
+msgid "Property details page"
+msgstr "Pagina dei dettagli della proprietà"
+
+#. Found in changelog list item.
+msgid "Update french translations"
+msgstr "Aggiorna le traduzioni in francese"
+
+#. Found in changelog list item.
+msgid "New visitor selection page"
+msgstr "Pagina di selezioni del nuovo utente"
+
+#. Found in changelog list item.
+msgid "Optional Bootstrap JS/CSS"
+msgstr "Bootstrap JS / CSS opzionale"
+
+#. Found in changelog list item.
+msgid "Update and fix"
+msgstr "Aggiorna e correggi"
+
+#. Found in description paragraph.
+msgid "The Property Search shortcode is <code>[itb_search]</code>."
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"You can use the \"ImmoToolBox Property Seach\" block to add the search engine inside a page.\n"
+"All the options of the search engine are inside the Block Setting on the side bar."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "Here are the shortcode parameters :"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"The Property Listing shortcode is <code>[itb_listing]</code>.\n"
+"You can add it anywhere you want to add a listing inside a page."
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"You can use the \"ImmoToolBox Property Listing\" block to add the listing inside a page.\n"
+"All the options of the listing are inside the Block Setting on the side bar."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "You can add as many of this pages as you like. They display a paginated listing of all mathing properties which can be sorted."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "PS : You need an <a href=\"https://intranet.immotoolbox.com\">ImmoToolBox</a> active account to use this plugin."
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"This plugin offers an out of the box solution, but can also be highly customized to fit your theme and requirements.\n"
+"Two Gutenberg blocks are available : \"Property Listing\" and \"Property Search\" (more to come)"
+msgstr ""
+
+#. Found in description header.
+msgid "Using the manual shortcode <code>[itb_search]</code>"
+msgstr ""
+
+#. Found in description header.
+msgid "Property Search engine"
+msgstr "Motore di ricerca di proprietà"
+
+#. Found in description header.
+msgid "Using the manual shortcode <code>[itb_listing]</code>"
+msgstr "Usando il shortcode manuale <code> [itb_listing] </code>"
+
+#. Found in description header.
+msgid "Using the Gutenberg block :"
+msgstr "Usando il blocco Gutenberg:"
+
+#. Short description.
+msgid "ImmoToolBox Connect displays your properties from ImmoToolBox to your website made with WordPress. This plugin is compatible with Gutenberg blocks."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "First stable version of the plugin"
+msgstr "Prima versione stabile del plugin"
+
+#. Found in faq paragraph.
+msgid "Ask-us!"
+msgstr "Chiedeteci!"
+
+#. Found in faq header.
+msgid "Any Question ?"
+msgstr "Qualche domanda?"
+
+#. Found in installation list item.
+msgid "On WordPress go to <em>ITB Connect</em> menu to setup the plugin using this key"
+msgstr ""
+
+#. Found in installation list item.
+msgid "On <a href=\"https://intranet.immotoolbox.com\">ImmoToolBox</a> go to your agency settings page and generate an API Key from <em>External Apps</em> tab."
+msgstr ""
+
+#. Found in installation list item.
+msgid "Activate the plugin through the 'Plugins' screen in WordPress"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Upload the plugin files to the <code>/wp-content/plugins/</code> directory, or install the plugin through the WordPress plugins screen directly."
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"All the html content of this Gutenberg blocks and shortcodes are generated using <a href=\"https://twig.symfony.com/\">Twig</a> and can be totally customized.\n"
+"By default the plugin will search for the files inside your theme directory (to avoid problems it's highly recommended to use a child theme)\n"
+"The files must be located in the directory :\n"
+"     /wp-content/themes/YOU-THEME-child/itb-connect/partials/"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "This shortcode displays the details of the specified property. The property is either specified in the URL or directly inside the tag (<code>[itb_property id=\"123456\"]</code>)"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"<strong>An horizontal search engine</strong>\n"
+"ex: <code>[itb_search format=\"horizontal\"]</code>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Your properties marked as \"selection\" in ImmoToolBox</strong>\n"
+"ex: <code>[itb_carousel featured=\"1\"]</code>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"<strong>8 properties for sale</strong>\n"
+"ex: <code>[itb_carousel type=\"sale\" nbpp=\"8\"]</code>"
+msgstr ""
+"<strong> 8 proprietà in vendita </strong> \n"
+" ex: <code> [itb_carousel type = \"sale\" nbpp = \"8\"] </code>"
+
+#. Found in description paragraph.
+msgid "This shortcode enable you to display properties inside another page with a slider"
+msgstr "Questo shortcode vi consente di visualizzare le proprietà all'interno di un'altra pagina con uno slider"
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Order the results</strong>\n"
+"Possible values : date, price, area\n"
+"ex: <code>[itb_listing type=\"sale\" order=\"price\" direction=\"desc\"][/itb_listing]</code>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Of course you can combine this settings :</strong>\n"
+"ex: <code>[itb_listing type=\"rental\" country=\"US\"]</code>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Filter by country code :</strong>\n"
+"You have to use two-letter country codes\n"
+"ex: <code>[itb_listing country=\"US\"]</code>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Filter by type :</strong>\n"
+"Possible values are 'sale' or 'rental'\n"
+"ex: <code>[itb_listing type=\"sale\"]</code>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"This page is used to display the search results when using a search engine.\n"
+"This page uses the <code>[itb_searchresults]</code> shortcode (this shortcode uses the same parameters as the <code>[itb_listing]</code> shortcode)"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"This page is used to display your properties' details.\n"
+"By default only one is required but if your using a multilingual website you'll have to create of page for each language.\n"
+"This page uses the <code>[itb_property]</code> shortcode"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "When this plugin is installed, 3 pages are automatically created"
+msgstr "Quando questo plugin è installato, vengono create automaticamente 3 pagine"
+
+#. Found in description paragraph.
+msgid "<em>ImmoToolBox Connect</em> displays your properties from ImmoToolBox to your website made with WordPress."
+msgstr "<em> ImmoToolBox Connect </em> mostra le proprietà da ImmoToolBox al suo sito Web realizzato con WordPress."
+
+#. Found in description header.
+msgid "Advanced custom html generation"
+msgstr "Generazione html personalizzata avanzata"
+
+#. Found in description header.
+msgid "Property details <code>[itb_property]</code>"
+msgstr "Dettaglio della proprietà <code> [itb_property] </code>"
+
+#. Found in description header.
+msgid "Slider of properties <code>[itb_carousel]</code>"
+msgstr "Foto delle proprietà <code> [itb_carousel] </code>"
+
+#. Found in description header.
+msgid "Properties listing pages"
+msgstr "Pagina listino delle proprietà"
+
+#. Found in description header.
+msgid "Custom pages"
+msgstr "Pagine personalizzate"
+
+#. Found in description header.
+msgid "Search results page"
+msgstr "Pagina dei risultati di ricerca"
+
+#. Found in description header.
+msgid "Pages created automatically"
+msgstr "Pagine create automaticamente"
+
+#. Found in description header.
+msgid "Help"
+msgstr "Aiuto"
+
+msgid "Image for french DPE information"
+msgstr "Immagine per informazioni sul DPE francese"
+
+msgid "Living"
+msgstr "Soggiorno"
+
+msgid "Total"
+msgstr "Totale"
+
+msgid "Garden"
+msgstr "Giardino"
+
+msgid "Land"
+msgstr "Terreno"
+
+msgid "Terrace"
+msgstr "Terrazza"
+
+msgid "Download PDF"
+msgstr ""
